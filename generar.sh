@@ -7,17 +7,23 @@ fi
 
 cantidad_imagenes=$1
 
-DIR_DESTINO="./descargas"
+DIR_DESTINO="./imagenes"
 if [ ! -d "$DIR_DESTINO" ]; then
   mkdir -p "$DIR_DESTINO"
 fi
 
-URL="https://source.unsplash.com/random/900%C3%97700/?person"
+URL="https://thispersondoesnotexist.com/"
 
-
+cd $DIR_DESTINO
 for ((i = 1; i <= cantidad_imagenes; i++)); do
-	NOMBRE=$(shuf nombres.csv | grep '^[A-Z]' | head -n 1 | cut -d ' ' -f '1')
-	wget $URL -O "./$DIR_DESTINO/$NOMBRE"
+	NOMBRE=$(shuf ../nombres.csv | grep '^[A-Z]' | head -n 1 | cut -d ' ' -f '1' | cut -d "," -f "1")
+	wget $URL -O "./$NOMBRE"
 	sleep 1
 done
+
+zip -r ../imagenes.zip *
+cd ../
+echo $(sha256sum imagenes.zip | cut -d ' ' -f '1')>suma_verificacion
+rm -r imagenes
+
 exit 0
