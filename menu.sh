@@ -1,28 +1,28 @@
 #!/usr/bin/bash
 PS3="Eliga la opcion: "
 
-select opt in "generar imagenes" "descomprimir imagenes" "procesar imagenes" "comprimir imagenes" "salir" 
+select opt in "Generar imagenes" "Descomprimir imagenes" "Procesar imagenes" "Comprimir imagenes" "Salir" 
 do
 
 	case $opt in
-			"generar imagenes")
+			"Generar imagenes")
 				read -p "ingrese el numero de imagenes a generar: " numero
 				bash generar.sh $numero
 				;;
 
-			"descomprimir imagenes")
-				read -p "Ingrese los archivos: " num
-				bash descomprimir.sh $num
+			"Descomprimir imagenes")
+
+				bash descomprimir.sh "imagenes.zip" "suma_verificacion"
 				;;
-			"procesar imagenes")
+			"Procesar imagenes")
 
 				bash procesar.sh
 				;;
-			"comprimir imagenes")
+			"Comprimir imagenes")
 
-        			bash comprimir.sh
+        			bash comprimir.sh "procesadas"
 				;;
-			"salir")
+			"Salir")
 
 				break
 				;;
