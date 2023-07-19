@@ -21,12 +21,12 @@ if [[ "$SUMA" == "$SUMA_VERIF" ]]; then
 	unzip $ZIP -d imagenes
 	rm ./"$ZIP"
 	rm ./"$2"
-	#./menu.sh
+	./menu.sh
     echo "¡Descomprimido con exito!"
 	exit 0
 	
 else 
 	echo "Las sumas de verificacion no coinciden"
-	#./menu.sh
+	./menu.sh
 	exit 1
 fi	

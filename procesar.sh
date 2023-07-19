@@ -6,7 +6,8 @@ mkdir -p procesadas
 dir_salida="./procesadas/"
 if [ ! -d "$dir_entrada" ]; then
 	echo Error: No hay imagenes para procesar, por favor primero genere las imagenes.
-    exit 1
+	./menu.sh
+    	exit 1
 fi
 cd $dir_entrada
 for FILE in *; do
@@ -18,8 +19,7 @@ done
 cd ../
 rm -r imagenes
 echo "Listo! Sus imagenes han sido redimensionadas."
+./menu.sh
 exit 0
-
-
 
 
