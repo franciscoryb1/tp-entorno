@@ -26,4 +26,5 @@ zip -r ../imagenes.zip *
 cd ../
 echo $(md5sum imagenes.zip | cut -d ' ' -f '1')>suma_verificacion
 rm -r imagenes
+echo "Imagenes generadas con exito!"
 exit 0

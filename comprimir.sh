@@ -17,7 +17,8 @@ fi
 mv nombres "$1"
 mv nombres_validos "$1"
 mv nombres_finalizados_con_a "$1"
-cd "$1"
+cd resultado && rm *
+cd "../$1/"
 zip -r ../resultado/imagenes_redim.zip *
 cd ../resultado/
 md5sum salida.zip | cut -d ' ' -f '1'>suma_verificacion_redim
