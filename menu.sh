@@ -23,6 +23,7 @@ while true; do
                 break
                 ;;
             Salir)
+            	cd resultado && rm gitkeep
                 echo Hasta luego!
                 exit 0
                 ;;
