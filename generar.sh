@@ -2,10 +2,9 @@
 
 if [ $# -eq 0 ]; then
   echo "Error: debe especificar la cantidad de imágenes a generar como argumento."
-  ./menu.sh
   exit 1
 fi
-
+echo "Generando sus imagenes..."
 cantidad_imagenes=$1
 
 DIR_DESTINO="./imagenes"
@@ -27,5 +26,4 @@ zip -r ../imagenes.zip *
 cd ../
 echo $(md5sum imagenes.zip | cut -d ' ' -f '1')>suma_verificacion
 rm -r imagenes
-./menu.sh
 exit 0

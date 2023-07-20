@@ -1,35 +1,34 @@
-#!/usr/bin/bash
-PS3="Eliga la opcion: "
+#!/bin/bash
 
-select opt in "Generar imagenes" "Descomprimir imagenes" "Procesar imagenes" "Comprimir imagenes" "Salir" 
-do
 
-	case $opt in
-			"Generar imagenes")
-				read -p "ingrese el numero de imagenes a generar: " numero
-				bash generar.sh $numero
-				;;
-
-			"Descomprimir imagenes")
-
-				bash descomprimir.sh "imagenes.zip" "suma_verificacion"
-				;;
-			"Procesar imagenes")
-
-				bash procesar.sh
-				;;
-			"Comprimir imagenes")
-
-        			bash comprimir.sh "procesadas"
-				;;
-			"Salir")
-
-				break
-				;;
-			*)
-				echo "no corresponde al menu"
-				;;
-	esac
-
+while true; do
+    echo "Selecciona una opción:"
+    select opt in Generar Descomprimir Procesar Comprimir Salir; do
+        case $opt in
+            Generar)
+                read -p "Ingrese la cantidad de imagenes a generar: " cantidad
+                bash generar.sh $cantidad
+                break
+                ;;
+            Descomprimir)
+                bash descomprimir.sh "imagenes.zip" "suma_verificacion"
+                break
+                ;;
+            Procesar)
+                bash procesar.sh
+                break
+                ;;
+            Comprimir)
+                bash comprimir.sh "procesadas"
+                break
+                ;;
+            Salir)
+                echo Hasta luego!
+                exit 0
+                ;;
+            *)
+                echo "Opcion no valida."
+                ;;
+        esac
+    done
 done
-exit 0
