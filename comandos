@@ -1,8 +1,0 @@
-
-
-# Comando para crear la imagen.
-sudo docker build -t tp_entornos .
-
-# Comando para correr la imagen en un contenedor.
-sudo docker run -it -v "$(pwd)/resultado":/home/programa/resultado tp_entornos
-
